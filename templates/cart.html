@@ -13,14 +13,14 @@
         </tr>
         </thead>
         <tbody>
-            <!-- {% for melon in shopping_cart %}
+            {% for melon in session.keys() %}
                 <tr>
-                    <td>{{ melon.common_name }}</td>
+                    <td>{{ session["cart"]["name"] }}</td>
                     <td>SOME STUPID QUANITY</td>
-                    <td>{{ melon.price }}</td>
+                    <td>{{ session["cart"]["price"] }}</td>
                     <td>SOME STUPID TOTAL</td>
                 </tr>
-            {% endfor %} -->
+            {% endfor %}
 
         <!-- <tr>
             <td>Ancient Watermelon</td>

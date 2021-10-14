@@ -99,13 +99,25 @@ def add_to_cart(melon_id):
     # - increment the count for that melon id by 1
     # - flash a success message
     # - redirect the user to the cart page
+    melon = melons.get_by_id(melon_id)
+    
+
     if "cart" in session:
-        shopping_cart = session["cart"]
+        #session["cart"] = {}
+        session["cart"] = {"code": melon.melon_id, "name": melon.common_name, "price": melon.price}
+        #[session["cart"]].append({"code": melon.melon_id, "name": melon.common_name, "price": melon.price})
+        # session["cart"]["code"].append(melon.melon_id)
+        # session["cart"]["name"].append(melon.common_name)
+        # session["cart"]["price"].append(melon.price)
+
         
     else:
-        shopping_cart = session["cart"] = {}
+        session["cart"] = []
+        #session["cart"] = {"code": melon.melon_id, "name": melon.common_name, "price": melon.price}
+        
 
-    print(session)
+    # print(type(melon))
+    # print(session["cart"])
     return redirect("/cart")
 
 
